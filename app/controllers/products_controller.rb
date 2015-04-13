@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
-  before_action :validate_user, only: [:edit. :update, :destroy]
+  before_action :validate_user, only: [:edit, :update, :destroy]
 
 
   def seller
@@ -27,12 +27,17 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user_id = current_user.id
 
-    if @product.save
-       redirect_to @product
-    else
-      render :new
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to @product, notice: 'product was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @product }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
     end
   end
+
 
   def update
     @product.update(product_params)
