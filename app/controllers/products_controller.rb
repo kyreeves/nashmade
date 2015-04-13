@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
+  before_action :validate_user, only: [:edit. :update, :destroy]
+
 
   def seller
     @products = Product.where(user: current_user).order("created_at DESC")
@@ -33,7 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-      @product.update(product_params)
+    @product.update(product_params)
   end
 
   def destroy
@@ -47,5 +49,11 @@ class ProductsController < ApplicationController
 
     def product_params
       params.require(:product).permit(:name, :description, :price, :image)
+    end
+
+    def validate_user
+      if current_user != @product.user
+        redirect_to root_url, alert: "Sorry, you are not authorized to access this page"
+      end
     end
 end
