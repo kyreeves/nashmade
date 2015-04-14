@@ -15,7 +15,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= image_tag order.product.image.url(:medium) %></td>
+        <td><%= image_tag order.product.image.url(:thumb) %></td>
         <td><%= order.product.name %></td>
         <td><%= number_to_currency(order.product.price) %></td>
         <td><%= order.buyer.name %></td>

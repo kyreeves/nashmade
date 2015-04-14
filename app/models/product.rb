@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  searchkick
   belongs_to :user
   has_many :orders
 

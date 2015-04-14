@@ -3,18 +3,24 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_action :validate_user, only: [:edit, :update, :destroy]
 
+  def search
+    if params[:search].present?
+      @products = Product.search(params[:search])
+    else
+      @products = Product.all
+    end
+  end
 
   def seller
-    @products = Product.where(user: current_user).order("created_at DESC")
+    @products = Product.where(user: current_user).order(created_at: :desc)
   end
 
   def index
-    @products = Product.all.order("created_at DESC")
+    @products = Product.all.order(created_at: :desc)
   end
 
   def show
   end
-
 
   def new
     @product = Product.new

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_product, only: [:new, :create]
 
   def sales
     @orders = Order.all.where(seller: current_user).order(created_at: :desc)
@@ -11,12 +12,10 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @product = Product.find(params[:product_id])
   end
 
   def create
     @order = Order.new(order_params)
-    @product = Product.find(params[:product_id])
     @seller = @product.user
 
     @order.product_id = @product.id
@@ -31,8 +30,9 @@ class OrdersController < ApplicationController
   end
 
   private
-    def set_order
-      @order = Order.find(params[:id])
+
+    def set_product
+      @product = Product.find(params[:product_id])
     end
 
     def order_params
