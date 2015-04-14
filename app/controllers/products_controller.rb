@@ -27,17 +27,12 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user_id = current_user.id
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'product was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @product }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      redirect_to @product
+    else
+      render :new
     end
   end
-
 
   def update
     @product.update(product_params)
@@ -58,7 +53,7 @@ class ProductsController < ApplicationController
 
     def validate_user
       if current_user != @product.user
-        redirect_to root_url, alert: "Sorry, you are not authorized to access this page"
+        redirect_to root_url
       end
     end
 end

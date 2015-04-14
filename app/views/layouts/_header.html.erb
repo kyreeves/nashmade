@@ -8,7 +8,10 @@
   <section class="top-bar-section">
     <ul class="right">
       <%- if current_user -%>
+        <li><%= link_to 'View Sales', sales_path %></li>
+        <li><%= link_to 'View Purchases', purchases_path %></li>
         <li><%= link_to 'Manage Products', seller_path %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
       <%- else -%>
         <li><%= link_to 'Sign Up', new_user_registration_path %></li>

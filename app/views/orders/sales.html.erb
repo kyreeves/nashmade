@@ -1,0 +1,26 @@
+<h1>Sale History</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Customer</th>
+      <th>Date Sold</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= image_tag order.product.image.url(:medium) %></td>
+        <td><%= order.product.name %></td>
+        <td><%= number_to_currency(order.product.price) %></td>
+        <td><%= order.buyer.name %></td>
+        <td><%= order.created_at.strftime("%B %-d, %Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

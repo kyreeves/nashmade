@@ -4,7 +4,10 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+  get 'purchases', to: 'orders#purchases'
   get 'seller', to: 'products#seller'
+  get 'sales', to: 'orders#sales'
+
 
   root 'products#index'
 
