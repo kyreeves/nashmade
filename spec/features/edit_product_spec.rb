@@ -13,7 +13,7 @@ feature 'user edits product' do
       product = FactoryGirl.create(:product, user: user)
 
       visit edit_product_path(product)
-      fill_in 'Name', with: 'Awesome Wood Chair'
+      fill_in 'product_name', with: 'Awesome Wood Chair'
 
       click_on 'Update Product'
 
