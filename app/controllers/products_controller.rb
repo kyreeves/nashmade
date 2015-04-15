@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
     end
 
     def validate_user
-      if current_user != @product.user
+      if current_user != @product.user || current_user.admin?
         redirect_to root_url
       end
     end
