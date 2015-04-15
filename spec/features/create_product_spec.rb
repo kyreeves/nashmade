@@ -32,9 +32,9 @@ feature 'user creates product' do
 
       click_on 'Create Product'
 
-      expect(page).to have_content('Wood Chair')
+      expect(page).to have_content("Name can't be blank")
       expect(page).to have_content('this is a description for the wood chair')
-      expect(page).to have_content('$15.00')
+      expect(page).to have_content('15')
     end
   end
 end

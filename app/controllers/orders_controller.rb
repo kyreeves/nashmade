@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
     @order.seller_id = @seller.id
 
     if @order.save
+      flash[:notice] = 'Your Order Was Successful!'
       redirect_to root_url
     else
       render :new

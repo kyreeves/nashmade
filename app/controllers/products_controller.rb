@@ -34,18 +34,30 @@ class ProductsController < ApplicationController
     @product.user_id = current_user.id
 
     if @product.save
+      flash[:notice] = 'You have successfully created a product!'
       redirect_to @product
     else
+      flash[:alert] = 'Something went wrong'
       render :new
     end
   end
 
   def update
-    @product.update(product_params)
+    if @product.update(product_params)
+      flash[:notice] = 'You have successfully updated this product!'
+      redirect_to @product
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @product.destroy
+    if @product.destroy
+      flash[:notice] = 'Product has been deleted'
+      redirect_to :back
+    else
+      render :show
+    end
   end
 
   private

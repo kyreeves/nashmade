@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
 
   get 'purchases', to: 'orders#purchases'
-  get 'seller', to: 'products#seller'
   get 'sales', to: 'orders#sales'
+  get 'seller', to: 'products#seller'
 
   root 'products#index'
 end
