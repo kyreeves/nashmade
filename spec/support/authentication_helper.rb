@@ -1,7 +1,7 @@
 module AuthenticationHelper
   def sign_in_as(user)
     visit root_path
-    click_on 'Sign In'
+    click_on 'Log In'
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password

@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
-  before_action :validate_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:seller, :new, :create, :destroy, :edit, :update]
+  before_action :validate_user, only: [:destroy, :edit, :update]
 
   def search
     if params[:search].present?
@@ -54,7 +54,7 @@ class ProductsController < ApplicationController
   def destroy
     if @product.destroy
       flash[:notice] = 'Product has been deleted'
-      redirect_to :back
+      redirect_to root_path
     else
       render :show
     end

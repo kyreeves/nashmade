@@ -20,5 +20,4 @@ RSpec.configure do |config|
 
   config.include AuthenticationHelper
   config.infer_spec_type_from_file_location!
-  config.include AuthenticationHelper
 end
