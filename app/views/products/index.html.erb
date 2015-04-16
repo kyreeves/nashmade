@@ -1,22 +1,29 @@
+<!-- <div class="jumbotron">
+  <h1>Man stuff made by men</h1>
+  <h2>merica</h2>
+</div> -->
 
-    <h1>All Products</h1>
-
-      <div class="large-8 columns">
-        <div class="row">
-        <% @products.each do |product| %>
-          <div class="large-4 small-6 columns">
-            <%= link_to (image_tag product.image.url(:medium), class: 'image'), product %>
-            <div class="panel">
-              <h5><%= product.name %></h5>
-              <h6 class="subheader"><%= number_to_currency(product.price) %></h6>
-              <h6 class="subheader"><%= "Sold by #{product.user.name}" %></h6>
-            </div>
+<div class="center">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <%= link_to (image_tag product.image.url(:medium), class: 'image'), product %>
+          <div class="caption">
+            <h3><%= product.name %></h3>
+            <p><%= number_to_currency(product.price) %></p>
+            <p><%= "Sold by #{product.user.name}" %></p>
           </div>
-        <% end %>
         </div>
       </div>
-
-    <% if user_signed_in? %>
-      <%= link_to 'Add New Product', new_product_path %>
     <% end %>
+  </div>
+</div>
 
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'Add New Product', new_product_path, class: "btn btn-primary", data: { no_turbolink: true } %>
+<% end %>
+
+<%= link_to 'Back', products_path, class: "btn btn-link" %>
