@@ -1,29 +1,26 @@
-<!-- <div class="jumbotron">
-  <h1>Man stuff made by men</h1>
-  <h2>merica</h2>
-</div> -->
-
-<div class="center">
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <%= link_to (image_tag product.image.url(:medium), class: 'image'), product %>
-          <div class="caption">
-            <h3><%= product.name %></h3>
-            <p><%= number_to_currency(product.price) %></p>
-            <p><%= "Sold by #{product.user.name}" %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
 <br>
-
-<% if user_signed_in? %>
-  <%= link_to 'Add New Product', new_product_path, class: "btn btn-primary", data: { no_turbolink: true } %>
-<% end %>
-
-<%= link_to 'Back', products_path, class: "btn btn-link" %>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col s12 m6 l3">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= link_to (image_tag product.image.url(:medium), class: 'image'), product %>
+        </div>
+          <div class="card-content">
+            <ul>
+              <li><span class="card-title activator grey-text text-darken-4"><%= product.name %><i class="mdi-navigation-more-vert right"></i></span></li>
+              <li><%= number_to_currency(product.price) %></li>
+            </ul>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= product.name %><i class="mdi-navigation-close right"></i></span>
+            <ul>
+              <li><%= number_to_currency(product.price) %></li><br>
+              <li><%= "Sold by: #{product.user.name}" %></li><br>
+              <li><%= product.description %></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>

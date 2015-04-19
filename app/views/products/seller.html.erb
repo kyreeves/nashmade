@@ -1,36 +1,19 @@
-<table class="table table-striped table-bordered">
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.image.url(:thumb) %></td>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= number_to_currency(product.price) %></td>
-        <td>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Action <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "View", product, class: "btn btn-link" %></li>
-            <li><%= link_to "Edit", edit_product_path(product), class: "btn btn-link" %></li>
-            <li><%= link_to 'Destroy', product, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %></li>
-          </ul>
-        </div>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
 <br>
+<%= link_to 'New Product', new_product_path, class: "waves-effect waves-light btn-large" %>
 
-<%= link_to 'New Product', new_product_path, class: "btn btn-link", data: { no_turbolink: true } %>
-
-<%= link_to 'Back', products_path, class: "btn btn-link" %>
+<ul class="collapsible popout" data-collapsible="accordion">
+  <% @products.each do |product| %>
+  <li>
+    <div class="collapsible-header">
+      <%= product.name %><span class="badge"><%= number_to_currency(product.price) %></span>
+    </div>
+    <div class="collapsible-body">
+      <p><%= product.description %></p>
+      <%= link_to "View", product, class: "waves-effect waves-light btn"%>
+      <%= link_to "Edit", edit_product_path(product), class: "waves-effect waves-light btn"%>
+      <%= link_to 'Destroy', product, method: :delete, data: { confirm: "Are you sure?" }, class: "waves-effect waves-light btn" %>
+      <%= image_tag product.image.url(:thumb), class: "materialboxed" %>
+    </div>
+  </li>
+  <% end %>
+</ul>

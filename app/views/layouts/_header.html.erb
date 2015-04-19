@@ -1,45 +1,38 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="/">NashMade</a>
-  </div>
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!"><%= link_to 'Manage Products', seller_path %></a></li>
+  <li><a href="#!"><%= link_to 'Sales History', sales_path %></a></li>
+</ul>
 
-  <form class="navbar-form navbar-left" role="search">
-    <%= form_tag search_products_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-      <p>
-        <%= text_field_tag :search, params[:search], class: "form-control" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-      </p>
-    <% end %>
-  </form>
+<ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!"><%= link_to 'Your Purchases', purchases_path %></a></li>
+  <li><a href="#!"><%= link_to "Edit Profile", edit_user_registration_path %></a></li>
+  <li><a href="#!"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a></li>
+</ul>
 
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-right">
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">ManMade</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Account <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Manage Products', seller_path %></li>
-            <li><%= link_to 'Sales History', sales_path %></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Your Purchases', purchases_path %></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Manage Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <% else %>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <!-- No DROP -->
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <% if user_signed_in? %>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Manage Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+      <% else %>
+      <!-- No DROP -->
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
     </ul>
   </div>

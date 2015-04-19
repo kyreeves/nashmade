@@ -1,26 +1,20 @@
+<br>
 <div class="row">
-  <div class="col-md-6">
-    <div class="thumbnail">
-      <%= image_tag @product.image.url(:medium) %>
-    </div>
+  <div class="s6">
+    <h3><%= @product.name %></h3>
+    <%= image_tag @product.image.url(:medium), class: "materialboxed" %>
   </div>
+  <div class="s6">
+    <p><%= number_to_currency(@product.price) %></p>
+    <p><%= @product.description %></p>
+  </div>
+</div>
 
-<div class="col-md-6">
-  <h3><%= @product.name %></h3>
-  <p><%= number_to_currency(@product.price) %></p>
-  <p><%= @product.description %></p>
-  <br>
-  <div class="center">
     <% if current_user != @product.user %>
-      <%= link_to "Buy It Now", new_product_order_path(@product) %>
+      <%= link_to "Buy It Now", new_product_order_path(@product), class: "btn" %>
     <% end %>
-  </div>
-</div>
-</div>
 
-<% if current_user == @product.user %>
-  <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-link" %>
-  <%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-
-<%= link_to 'Back', products_path, class: "btn btn-link" %>
+    <% if current_user == @product.user %>
+      <%= link_to 'Edit', edit_product_path(@product), class: "btn" %>
+      <%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+    <% end %>

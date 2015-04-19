@@ -23,9 +23,3 @@
 </table>
 
 <br>
-
-<% if user_signed_in? %>
-  <%= link_to 'Add New Product', new_product_path, class: "btn btn-link", data: { no_turbolink: true } %>
-<% end %>
-
-<%= link_to 'Back', products_path, class: "btn btn-link" %>
