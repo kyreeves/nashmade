@@ -1,20 +1,19 @@
-<br>
-<div class="row">
-  <div class="s6">
-    <h3><%= @product.name %></h3>
-    <%= image_tag @product.image.url(:medium), class: "materialboxed" %>
-  </div>
-  <div class="s6">
-    <p><%= number_to_currency(@product.price) %></p>
-    <p><%= @product.description %></p>
+<div class="container show">
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <div class="showimg"><%= image_tag @product.image.url(:large), class: "materialboxed" %></div>
+    </div>
+    <div class="col s12 m6 l6">
+      <h1><%= @product.name %></h1>
+      <h5><%= number_to_currency(@product.price) %></h5>
+        <% if current_user != @product.user %>
+          <%= link_to "Buy It Now", new_product_order_path(@product), class: "btn" %>
+        <% end %>
+        <% if current_user == @product.user %>
+          <%= link_to 'Edit', edit_product_path(@product), class: "btn" %>
+          <%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+        <% end %>
+      <p><%= @product.description %></p>
+    </div>
   </div>
 </div>
-
-    <% if current_user != @product.user %>
-      <%= link_to "Buy It Now", new_product_order_path(@product), class: "btn" %>
-    <% end %>
-
-    <% if current_user == @product.user %>
-      <%= link_to 'Edit', edit_product_path(@product), class: "btn" %>
-      <%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
-    <% end %>

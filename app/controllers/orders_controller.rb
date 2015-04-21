@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def purchases
-    @orders = Order.where(buyer: current_user).order(created_at: :desc)
+    @orders = Order.all.where(buyer: current_user).order(created_at: :desc)
   end
 
   def new

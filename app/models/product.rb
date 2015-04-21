@@ -1,9 +1,9 @@
 class Product < ActiveRecord::Base
   searchkick
   belongs_to :user
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
-  has_attached_file :image, styles: { :medium => "200x200", :thumb => "150x150>" }, default_url: "default.jpg"
+  has_attached_file :image, styles: { large: "500x500", medium: "300x300", thumb: "150x150" }, default_url: "default.jpg"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :name, :description, :price, presence: true

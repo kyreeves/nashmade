@@ -28,4 +28,5 @@ gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '~> 1.5.7'
 gem 'searchkick'
 gem 'materialize-sass'
-
+gem 'sweet-alert'
+gem 'sweet-alert-confirm'
