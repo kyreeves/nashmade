@@ -4,16 +4,11 @@ html {
     font-family: 'Montserrat', sans-serif;
 }
 
-$localLightPrimaryColor: #B3E5FC;
-$localPrimaryColor: #03A9F4;
-$localDarkPrimaryColor: #405765;
-$localAccentColor: #FF5722;
-
-$darkPrimaryColor: #0288D1;
-$primaryColor: #03A9F4;
-$lightPrimaryColor: #B3E5FC;
+$darkPrimaryColor: #303F9F;
+$primaryColor: #3F51B5;
+$lightPrimaryColor: #C5CAE9;
 $textPrimaryColor: #FFFFFF;
-$accentColor: #FF5722;
+$accentColor: #9E9E9E;
 $primaryTextColor: #212121;
 $secondaryTextColor: #727272;
 $dividerColor: #B6B6B6;
@@ -43,9 +38,9 @@ $dividerColor: #B6B6B6;
 }
 
 a {
-  color: $localAccentColor;
+  color: $accentColor;
   &:hover {
-    color: $localPrimaryColor;
+    color: $primaryColor;
   }
 }
 
@@ -58,10 +53,10 @@ a.btn {
 
 .btn {
   padding-top: 0.1rem;
-  background-color: $localPrimaryColor;
+  background-color: $primaryColor;
   margin-bottom: 1rem;
   &:hover {
-    background-color: $localPrimaryColor;
+    background-color: $primaryColor;
   }
 }
 
@@ -93,7 +88,7 @@ a.btn {
 // }
 
 nav {
-  background-color: $localDarkPrimaryColor;
+  background-color: $darkPrimaryColor;
 }
 
 .nav-wrapper a {
@@ -128,7 +123,7 @@ span.badge.new::after {
 }
 
 .header {
-  background-color: $localPrimaryColor;
+  background-color: $primaryColor;
   text-align: center;
   h1 {
     margin-top: 0;
@@ -149,7 +144,7 @@ span.badge.new::after {
 }
 
 footer.page-footer {
-  background-color: $localDarkPrimaryColor;
+  background-color: $darkPrimaryColor;
 }
 
 .centered {
