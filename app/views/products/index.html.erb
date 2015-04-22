@@ -1,19 +1,19 @@
 <br>
 <div class="row">
-  <div class="col s4">
-    <div class="image waves-effect waves-block waves-light">
+  <div class="col s12 l4">
+    <img class="responsive-img">
       <%= link_to image_tag("baseball.png"), category_path(Category.find(3)) %>
-    </div>
+    </img>
   </div>
-  <div class="col s4">
-    <div class="image waves-effect waves-block waves-light">
+  <div class="col s12 l4">
+     <img class="responsive-img">
       <%= link_to image_tag("basketball.png"), category_path(Category.find(1)) %>
-    </div>
+    </img>
   </div>
-  <div class="col s4">
-    <div class="image waves-effect waves-block waves-light">
+  <div class="col s12 l4">
+    <img class="responsive-img">
       <%= link_to image_tag("football.png"), category_path(Category.find(2)) %>
-    </div>
+    </img>
   </div>
 </div>
 
@@ -43,7 +43,3 @@
     </div>
   <% end %>
 </div>
-
-<% @categories.each do |c| %>
-  <%= link_to c.name, category_path(c.id) %>
-<% end %>

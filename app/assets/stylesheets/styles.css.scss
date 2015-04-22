@@ -1,9 +1,6 @@
 @import "materialize";
 
-html {
-    font-family: 'Montserrat', sans-serif;
-}
-
+$font-stack: 'Montserrat', sans-serif;
 $darkPrimaryColor: #415B77;
 $primaryColor: #3F51B5;
 $lightPrimaryColor: #C5CAE9;
@@ -12,6 +9,10 @@ $accentColor: #9E9E9E;
 $primaryTextColor: #212121;
 $secondaryTextColor: #727272;
 $dividerColor: #B6B6B6;
+
+html {
+    font-family: $font-stack;
+}
 
 .show {
   h1 {
@@ -73,19 +74,6 @@ a.btn {
     color: black;
   }
 }
-
-// .logo {
-//   margin-top: 6px;
-//   height: 52px;
-//   width: 52px;
-//   path {
-//     fill: white;
-//   }
-// }
-
-// .navbar-fixed nav {
-//  overflow: visible;
-// }
 
 nav {
   background-color: $darkPrimaryColor;
@@ -152,14 +140,8 @@ footer.page-footer {
   margin: 0 auto;
 }
 
-.card-panel {
-  background-color: #e53935;
-  color: #ffffff;
-  text-align: center;
-}
-
 @media only screen and (min-width: 993px) {
   .container {
-    width: 90%;
+    width: 95%;
   }
 }
