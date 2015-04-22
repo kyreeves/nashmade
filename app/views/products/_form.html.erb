@@ -24,10 +24,13 @@
         <%= f.text_area :description, class: "materialize-textarea" %>
       </div>
 
+      <div class="input-field col s12">
+        <option value="" disabled selected>Choose a category</option>
+        <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+      </div>
         <%= f.file_field :image %><br>
         <br>
         <%= f.submit class: "btn" %>
-
     </div>
   <% end %>
 </div>

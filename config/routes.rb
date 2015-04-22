@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+  resources :categories do
+    resources :products
+  end
 
   get 'purchases', to: 'orders#purchases'
   get 'sales', to: 'orders#sales'
