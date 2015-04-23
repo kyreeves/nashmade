@@ -1,14 +1,12 @@
 @import "materialize";
 
 $font-stack: 'Raleway', sans-serif;
-$darkPrimaryColor: #575757;
+$darkPrimaryColor: #000000;
 $primaryColor: #D3505A;
-$lightPrimaryColor: #C5CAE9;
-$textPrimaryColor: #FFFFFF;
-$accentColor: #9E9E9E;
+$lightPrimaryColor: #FFFFFF;
+$accentColor: #4D4D4D;
 $primaryTextColor: #212121;
-$secondaryTextColor: #727272;
-$dividerColor: #B6B6B6;
+$secondaryTextColor: #808080;
 
 html {
     font-family: $font-stack;
@@ -59,22 +57,18 @@ html {
 a.btn {
   vertical-align: middle;
   &:hover {
-    color: grey;
+    color: $darkPrimaryColor;
   }
 }
 
 .btn {
   padding-top: 0.1rem;
-  background-color: $primaryColor;
+  background-color: $accentColor;
   margin-bottom: 1rem;
+  border-radius: 0;
   &:hover {
-    background-color: $primaryColor;
+    background-color: $lightPrimaryColor;
   }
-}
-
-.btn span {
-  position: relative;
-  top: -0.1rem;
 }
 
 .tags a {
@@ -82,18 +76,18 @@ a.btn {
   padding: 0;
   margin-bottom: .2rem;
   :hover {
-    color: black;
+    color: $darkPrimaryColor;
   }
 }
 
 nav {
-  background-color: $textPrimaryColor;
+  background-color: $lightPrimaryColor;
 }
 
 .nav-wrapper a {
-  color: black;
+  color: $darkPrimaryColor;
   &:hover {
-    color: grey;
+    color: $secondaryTextColor;
   }
 }
 
@@ -102,7 +96,7 @@ nav {
   padding: 0;
   margin-bottom: .2rem;
   :hover {
-    color: black;
+    color: $darkPrimaryColor;
   }
 }
 
@@ -116,10 +110,6 @@ span {
     right: 0;
     padding: 4px 6px 4px 6px;
   }
-}
-
-span.badge.new::after {
-  content: "";
 }
 
 .header {
@@ -152,9 +142,10 @@ footer.page-footer {
   margin: 0 auto;
 }
 
-.card-panel {
-  text-align: center;
-  background-color: $darkPrimaryColor;
+.card-content {
+  h5 {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (min-width: 993px) {
