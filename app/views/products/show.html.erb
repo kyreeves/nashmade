@@ -1,7 +1,12 @@
 <div class="container show">
   <div class="row">
     <div class="col s12 m6 l6">
-      <div class="showimg"><%= image_tag @product.image.url(:large), class: "materialboxed" %></div>
+      <div class="hide-on-med-and-down">
+        <div class="showimg"><%= image_tag @product.image.url(:large), class: "materialboxed" %></div>
+      </div>
+      <div class="hide-on-large-only">
+        <div class="showimg"><%= image_tag @product.image.url(:thumb), class: "materialboxed" %></div>
+      </div>
     </div>
     <div class="col s12 m6 l6">
       <h3><%= @product.name %></h3>
