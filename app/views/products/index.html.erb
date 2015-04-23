@@ -1,20 +1,6 @@
 <br>
-<div class="row">
-  <div class="col s12 l4">
-    <img class="responsive-img">
-      <%= link_to image_tag("baseball.png"), category_path(Category.find(3)) %>
-    </img>
-  </div>
-  <div class="col s12 l4">
-     <img class="responsive-img">
-      <%= link_to image_tag("basketball.png"), category_path(Category.find(1)) %>
-    </img>
-  </div>
-  <div class="col s12 l4">
-    <img class="responsive-img">
-      <%= link_to image_tag("football.png"), category_path(Category.find(2)) %>
-    </img>
-  </div>
+<div class="hero-img">
+  <%= image_tag("arroh2.png") %>
 </div>
 
 <div class="row">
@@ -36,7 +22,6 @@
               <li><%= number_to_currency(product.price) %></li><br>
               <li><%= "Sold by: #{product.user.name}" %></li><br>
               <li><%= product.description %></li>
-              <li><%= link_to Category.find(product.category_id).name, category_products_path(product.category_id) %></li>
             </ul>
           </div>
       </div>

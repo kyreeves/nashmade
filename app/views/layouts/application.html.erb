@@ -4,23 +4,25 @@
   <title>Nashmade</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= render 'layouts/header' %>
 
-<div class="container">
-
-  <%- flash.each do |key, value| -%>
+<%- flash.each do |key, value| -%>
   <div class="card-panel">
     <div class="flash-<%= key %>">
       <%= value %>
     </div>
   </div>
-  <% end %>
+<% end %>
 
-  <%= yield %>
+<div class="container">
+
+
+
+<%= yield %>
 
 
 </div>

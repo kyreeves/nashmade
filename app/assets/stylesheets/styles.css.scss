@@ -1,8 +1,8 @@
 @import "materialize";
 
-$font-stack: 'Montserrat', sans-serif;
-$darkPrimaryColor: #415B77;
-$primaryColor: #3F51B5;
+$font-stack: 'Raleway', sans-serif;
+$darkPrimaryColor: #575757;
+$primaryColor: #D3505A;
 $lightPrimaryColor: #C5CAE9;
 $textPrimaryColor: #FFFFFF;
 $accentColor: #9E9E9E;
@@ -12,6 +12,24 @@ $dividerColor: #B6B6B6;
 
 html {
     font-family: $font-stack;
+}
+
+.hero-img img{
+  max-width:100% !important;
+  height:auto;
+  display:block;
+}
+
+.image-head {
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    :hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
 }
 
 .show {
@@ -35,13 +53,6 @@ html {
   }
   img {
     margin-left: 1rem;
-  }
-}
-
-a {
-  color: $accentColor;
-  &:hover {
-    color: $primaryColor;
   }
 }
 
@@ -76,10 +87,11 @@ a.btn {
 }
 
 nav {
-  background-color: $darkPrimaryColor;
+  background-color: $textPrimaryColor;
 }
 
 .nav-wrapper a {
+  color: black;
   &:hover {
     color: grey;
   }
@@ -138,6 +150,11 @@ footer.page-footer {
 .centered {
   display: block;
   margin: 0 auto;
+}
+
+.card-panel {
+  text-align: center;
+  background-color: $darkPrimaryColor;
 }
 
 @media only screen and (min-width: 993px) {
