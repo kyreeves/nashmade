@@ -5,7 +5,7 @@
 <table class="responsive-table bordered hoverable">
   <thead>
     <tr>
-      <th>Image</th>
+      <th><div class="hide-on-med-and-down">Image</div></th>
       <th>Product</th>
       <th>Price</th>
       <th>Customer</th>
@@ -17,7 +17,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= image_tag order.product.image.url(:thumb) %></td>
+        <td><div class="hide-on-med-and-down"><%= image_tag order.product.image.url(:thumb) %></div></td>
         <td><%= order.product.name %></td>
         <td><%= number_to_currency(order.product.price) %></td>
         <td><%= order.buyer.name %></td>

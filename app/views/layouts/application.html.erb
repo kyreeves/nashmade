@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <%= render 'layouts/header' %>
 
 <%- flash.each do |key, value| -%>
@@ -18,14 +19,18 @@
   </div>
 <% end %>
 
+<% if current_page?(root_path) %>
+  <div class="hero-img">
+    <%= image_tag("arroh2.png") %>
+  </div>
+<% end %>
+
 <div class="container">
-
-
 
 <%= yield %>
 
-
 </div>
+
 <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
 <%= render 'layouts/footer' %>
 
