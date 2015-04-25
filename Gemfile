@@ -27,6 +27,6 @@ gem 'devise'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '~> 1.5.7'
 gem 'searchkick'
-gem 'materialize-sass'
+gem 'materialize-sass', '~> 0.95.3.4'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
