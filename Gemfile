@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '4.2.1'
 gem 'pg'
@@ -30,3 +31,4 @@ gem 'aws-sdk', '~> 1.5.7'
 gem 'materialize-sass', '~> 0.95.3.4'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
+gem 'rails_12factor'
