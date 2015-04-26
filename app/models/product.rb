@@ -4,7 +4,10 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :orders, dependent: :destroy
 
-  has_attached_file :image, styles: { large: "500x500", medium: "300x300", thumb: "150x150" }, default_url: "default.jpg"
+  has_attached_file :image,
+                    styles: { large: "500x500", medium: "300x300", thumb: "150x150" },
+                    default_url: "default.jpg",
+                    s3_credentials: S3_CREDENTIALS
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :name, :description, :price, presence: true
