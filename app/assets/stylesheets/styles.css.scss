@@ -7,6 +7,7 @@ $lightPrimaryColor: #FFFFFF;
 $accentColor: #4A4A4A;
 $primaryTextColor: #212121;
 $secondaryTextColor: #808080;
+$dropdown-color: #EF5A4C;
 
 html {
     font-family: $font-stack;
@@ -14,6 +15,15 @@ html {
 
 h1 h2 h3 h4 h5 {
   color: $accentColor;
+}
+
+.dropdown-content li {
+  & > a, & > span {
+      font-size: 1.2rem;
+      color: $dropdown-color;
+      display: block;
+      padding: 1rem 1rem;
+    }
 }
 
 .hero-img img{
@@ -60,12 +70,12 @@ h1 h2 h3 h4 h5 {
   }
 }
 
-a.btn {
-  vertical-align: middle;
-  &:hover {
-    color: $darkPrimaryColor;
-  }
-}
+// a.btn {
+//   vertical-align: middle;
+//   &:hover {
+//     color: $darkPrimaryColor;
+//   }
+// }
 
 .btn {
   padding-top: 0.1rem;
