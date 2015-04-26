@@ -4,23 +4,22 @@ $font-stack: 'Raleway', sans-serif;
 $darkPrimaryColor: #000000;
 $primaryColor: #D3505A;
 $lightPrimaryColor: #FFFFFF;
-$accentColor: #4A4A4A;
 $primaryTextColor: #212121;
 $secondaryTextColor: #808080;
-$dropdown-color: #EF5A4C;
+$accentColor: #EF5A4C;
 
 html {
     font-family: $font-stack;
 }
 
 h1 h2 h3 h4 h5 {
-  color: $accentColor;
+  color: $secondaryTextColor;
 }
 
 .dropdown-content li {
   & > a, & > span {
       font-size: 1.2rem;
-      color: $dropdown-color;
+      color: $accentColor;
       display: block;
       padding: 1rem 1rem;
     }
@@ -70,23 +69,18 @@ h1 h2 h3 h4 h5 {
   }
 }
 
-// a.btn {
-//   vertical-align: middle;
-//   &:hover {
-//     color: $darkPrimaryColor;
-//   }
-// }
-
 .btn {
   padding-top: 0.1rem;
   color: $darkPrimaryColor;
   background-color: transparent;
   margin-bottom: 1rem;
   border-radius: 0;
-  border: 1px solid black;
+  border: 1px solid;
+  border-color: $darkPrimaryColor;
   &:hover {
     background-color: $lightPrimaryColor;
-    color: $darkPrimaryColor;
+    color: $accentColor;
+    border-color: $accentColor;
   }
 }
 
