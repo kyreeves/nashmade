@@ -6,8 +6,7 @@ class Product < ActiveRecord::Base
 
   has_attached_file :image,
                     styles: { large: "500x500", medium: "300x300", thumb: "150x150" },
-                    default_url: "default.jpg",
-                    s3_credentials: S3_CREDENTIALS
+                    default_url: "default.jpg"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :name, :description, :price, presence: true
