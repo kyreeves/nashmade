@@ -18,6 +18,7 @@
           <%= link_to 'Edit', edit_product_path(@product), class: "btn" %>
           <%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
         <% end %>
+        <div class="divider"></div>
       <p><%= @product.description %></p>
     </div>
   </div>
