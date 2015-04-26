@@ -4,12 +4,16 @@ $font-stack: 'Raleway', sans-serif;
 $darkPrimaryColor: #000000;
 $primaryColor: #D3505A;
 $lightPrimaryColor: #FFFFFF;
-$accentColor: #4D4D4D;
+$accentColor: #4A4A4A;
 $primaryTextColor: #212121;
 $secondaryTextColor: #808080;
 
 html {
     font-family: $font-stack;
+}
+
+h1 h2 h3 h4 h5 {
+  color: $accentColor;
 }
 
 .hero-img img{
@@ -65,9 +69,11 @@ a.btn {
 
 .btn {
   padding-top: 0.1rem;
-  background-color: $accentColor;
+  color: $darkPrimaryColor;
+  background-color: transparent;
   margin-bottom: 1rem;
   border-radius: 0;
+  border: 1px solid black;
   &:hover {
     background-color: $lightPrimaryColor;
     color: $darkPrimaryColor;
