@@ -4,4 +4,4 @@ This project is my Launch Academy Breakable Toy that I am now calling Arrow Musi
 
 -This is a Ruby on Rails e-commerce site where users upload and manage musical instruments to sell, as well as buy other user's instruments
 
-![alt tag](https://cloud.githubusercontent.com/assets/9420347/7340234/9b96fe82-ec56-11e4-84f1-5a16256ac9bc.png)
+![alt tag](https://raw.github.com/kyreeves/nashmade/master/app/assets/images/home.png)
